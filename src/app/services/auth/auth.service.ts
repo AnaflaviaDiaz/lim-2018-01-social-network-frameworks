@@ -7,15 +7,25 @@ export class AuthService {
   constructor(
     public _afAuth: AngularFireAuth
   ) { }
-
+  // currentUser():any {
+  //   return new Promise(resolve => {
+  //     this._afAuth.authState.subscribe((auth) => {
+  //       console.log(auth)
+  //       resolve(auth);
+  //     });
+  //   })
+  // }
   stateSession(): any {
     return new Promise((resolve, reject) => {
-      this._afAuth.authState.subscribe((auth) => {
-        if (!auth) { reject(auth); }
+      this._afAuth.authState
+      .subscribe((auth) => {
+        if (!auth) reject(auth);
         resolve(auth);
       });
-    });
+    })
   }
+
+  redirectUrl: string;
 
   signupUser(email: string, pass: string) {
     // tslint:disable-next-line:no-shadowed-variable

@@ -1,27 +1,21 @@
 .spaces-vertical {
   margin: 20px 0;
 }
-
 .spaces-horizontal {
   margin: 0 20px;
 }
-
 .colornotlike {
   background-color: #2b485d;
   color: white;
 }
-
 .profilepicture {
-  margin: 5px;
-  width: 50px;
+  width: 100%;
   height: auto;
 }
-
 .description-photo {
   width: 100%;
   height: auto;
 }
-
 textarea {
   /* border: none; */
   width: 100%;
@@ -29,4 +23,9 @@ textarea {
   padding: 15px;
   font-size: 16px;
   outline: none;
+}
+.header-card {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0.25rem  1.25rem  0.25rem  1.25rem ;
 }

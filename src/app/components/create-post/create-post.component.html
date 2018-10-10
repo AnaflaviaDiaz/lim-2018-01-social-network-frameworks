@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card mt-5">
   <div class="card-body  px-0 pb-0">
     <div>
       <textarea [(ngModel)]="description" name="" id="" cols="50" rows="4" placeholder="¿Qué tienes en mente?"></textarea>
@@ -8,13 +8,16 @@
     </div>
     <div class="py-1 col-12 d-flex bd-highlight mb-2 align-items-center border-top">
       <div class="section-logo mr-auto p-2 bd-highlight">
-        <select [(ngModel)]="privacity" id="privacitymenu">
+
+        <select [(ngModel)]="privacity" id="privacitymenu" class="form-control ">
           <option *ngFor="let font of items" [value]="font">{{font}}</option>
-        </select>
+        </select>       
       </div>
       <div>
-        <label class="pointer" for="photo"><img src="https://image.ibb.co/j8MkhK/camara_de_fotos.png" class="mx-3" height="45px"
-            width="45px" alt="alt"></label>
+        <label for="photo" height="30px" width="30px">
+            <img src="https://image.ibb.co/j8MkhK/camara_de_fotos.png" class="mx-3" height="40px"
+            width="40px" alt="alt">
+        </label>
         <input id="photo" type="file" class="d-none" (change)="addImg($event)">
         <button type="button" class="btn sky-color" (click)="createPost()">Publicar</button>
       </div>

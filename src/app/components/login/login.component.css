@@ -1,25 +1,21 @@
 .padding-none {
   padding: 0;
 }
-
 .margin-none {
   margin: 0;
 }
-
 .height-full {
   height: 100vh;
 }
-
 .main-color {
   background-color: #f7f9fa;
 }
-
 .bakground-input {
   background-color: #fff;
   padding: 15px 11px;
   width: 100%;
   border: 2px solid #f6f6f6;
-  -webkit-transition: all 0.5s;
+  -webkit-transition: all 0.5s; 
   border-radius: 5px;
 }
 
@@ -31,12 +27,11 @@
   padding: 2%;
   margin: 5% auto;
 }
-
 label {
   font-size: 18px;
   color: #2b485d;
 }
-
 .providers-btn {
   cursor: pointer;
 }
+

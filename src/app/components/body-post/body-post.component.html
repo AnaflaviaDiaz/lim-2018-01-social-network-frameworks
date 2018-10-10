@@ -1,11 +1,15 @@
 <div *ngFor="let post of Arrayposts">
   <div *ngIf="posts[post].privacity === 'Publico' || currentUserId === posts[post].authorId" class="card  px-0 shadow-sm  mb-5 bg-white rounded spaces-vertical">
-    <div class="d-flex row justify-content-start">
-      <div class="col-2 align-items-center "><img src="{{posts[post].authorPhoto}}" class="rounded-circle profilepicture"></div>
-      <div class="col-10">
-        <h5 class="p-3 card-title">{{posts[post].authorName}}</h5>
+      <div class="header-card">
+        <div class="row">
+            <div class="col-1 d-flex justify-content-center align-items-center p-0">
+                <img src="{{posts[post].authorPhoto}}" class="rounded-circle profilepicture">
+              </div>
+              <div class="col-9 p-0 align-items-start">
+                <h6 class="p-3 card-title">{{posts[post].authorName}}</h6>
+              </div>  
+        </div>         
       </div>
-    </div>
     <div class="card-body px-3" *ngIf="canEdit === false || actualPost !== post">{{posts[post].description}}
       <div>
         <img *ngIf="posts[post].img" class="rounded description-photo" src="{{posts[post].img}}">
@@ -14,24 +18,28 @@
     <div class="card-body px-3" *ngIf="canEdit === true && actualPost === post">
       <textarea cols="50" rows="4" [(ngModel)]="textEdit">{{posts[post].description}}</textarea>
       <button type="button" class="btn btn-default spaces-horizontal">
-        <span aria-hidden="true" (click)="saveEditPost(post)">Guardar</span>
+        <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="saveEditPost(post)">Guardar</span>
       </button>
       <button type="button" class="btn btn-default spaces-horizontal">
-        <span aria-hidden="true" (click)="cancelEditPost()">Cancelar</span>
-      </button>
+        <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="cancelEditPost()">Cancelar</span>
+      </button> 
     </div>
     <div class="border-top text-muted py-2 d-flex justify-content-between">
       <div>
-        <a class="spaces-horizontal pointer" id="post" (click)="addLike(post)"><img src="https://image.ibb.co/n2rwpz/like.png" height="30px" width="30px" alt="como"
-            border="0"></a>
-        <span>{{posts[post].likesCount}}</span>
+        <!-- <label for="like">
+          <img src="https://image.ibb.co/n2rwpz/like.png" height="30px" width="30px" alt="como">
+        </label> -->
+        <button type="button" class="mx-3  btn bg-transparent px-3" id="like" (click)="addLike(post)" >
+            <img src="https://image.ibb.co/n2rwpz/like.png" height="30px" width="30px" alt="como">
+        </button>
+        <span>{{posts[post].likesCount}}</span> 
       </div>
       <div *ngIf="currentUserId === posts[post].authorId">
         <button type="button" class="btn btn-default spaces-horizontal" *ngIf="canEdit === false || actualPost !== post">
-          <span aria-hidden="true" (click)="editPost(post)">Editar</span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="editPost(post)">Editar</span>
         </button>
         <button type="button" class="btn btn-default spaces-horizontal" *ngIf="canEdit === false || actualPost !== post">
-          <span aria-hidden="true" (click)="removePost(post)">Eliminar</span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="removePost(post)">Eliminar</span>
         </button>
       </div>
     </div>

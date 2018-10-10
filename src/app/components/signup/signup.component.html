@@ -1,49 +1,49 @@
-<div class="row">
-  <img src="https://scontent.flim6-1.fna.fbcdn.net/v/t1.15752-9/41965131_2356789807680715_6213257779549831168_n.png?_nc_cat=0&_nc_eui2=AeGJPDCnminP8D0UIuOcqo_IeEfU_aZDv4vx9dn7dsjLmPNrJsO7Z2421tifsjT80h5J7iXSKCU6KG4tD-WBLs6w5WAc6r1zvOTZVGKbkaUZ5Q&oh=cbafef5a652d45a87dc4924b1e6128c2&oe=5C23051C"
-    alt="init" class="col-6 d-none d-md-block padding-none height-full">
-  <div class="col-12 col-md-6 main-color">
-    <div class="container col-10">
-      <div class="row  my-1">
-        <img src="https://scontent.flim6-1.fna.fbcdn.net/v/t1.15752-9/41880598_596385507430907_7710663114726834176_n.png?_nc_cat=0&_nc_eui2=AeGPklKwmR4EYL1r5urHf1U8zHQd9qEthdIOLzZIC-kjoAoqGorkvx_ktNljKIRw6A8nB2AnehLBqR8qbSx5USm0l_qCq5WLfxwQvavv0r6WBA&oh=b53cac9f01961a5a8a2c9334e544dedf&oe=5C36E572"
-          alt="logo" class="mx-auto">
-      </div>
-      <form class="">
-        <div class="container">
-          <p class="row d-flex justify-content-center">Regístrate para que aprendas nuevas tecnologías</p>
-          <p class="row d-flex justify-content-center">Regístrate con: </p>
-          <div class="row d-flex justify-content-center">
-            <label class="col-2"><img class="providers-btn pointer" height="35px" width="35px" src="https://image.flaticon.com/icons/svg/174/174848.svg"
-                alt="" (click)="facebookAccount()"></label>
-            <button class="d-none"></button>
-            <label class="col-2"><img class="providers-btn pointer" height="35px" width="35px" src="https://image.flaticon.com/icons/svg/732/732200.svg"
-                alt="" (click)="googleAccount()"></label>
-            <button class="d-none"></button>
+<div class="container-fluid">
+  <div class="row">
+    <img src="https://scontent.flim6-1.fna.fbcdn.net/v/t1.15752-9/41965131_2356789807680715_6213257779549831168_n.png?_nc_cat=0&_nc_eui2=AeGJPDCnminP8D0UIuOcqo_IeEfU_aZDv4vx9dn7dsjLmPNrJsO7Z2421tifsjT80h5J7iXSKCU6KG4tD-WBLs6w5WAc6r1zvOTZVGKbkaUZ5Q&oh=cbafef5a652d45a87dc4924b1e6128c2&oe=5C23051C" alt="init" class="col-6 d-none d-md-block padding-none height-full">
+    <div class="col-12 col-md-6 main-color">
+      <div class="container col-10">
+        <div class="row  my-1">
+          <img src="https://scontent.flim6-1.fna.fbcdn.net/v/t1.15752-9/41880598_596385507430907_7710663114726834176_n.png?_nc_cat=0&_nc_eui2=AeGPklKwmR4EYL1r5urHf1U8zHQd9qEthdIOLzZIC-kjoAoqGorkvx_ktNljKIRw6A8nB2AnehLBqR8qbSx5USm0l_qCq5WLfxwQvavv0r6WBA&oh=b53cac9f01961a5a8a2c9334e544dedf&oe=5C36E572" alt="logo" class="mx-auto">
+        </div>
+        <form class="">
+          <div class="container">
+            <em class="row d-flex justify-content-center text-justify">Regístrate y aprenderás nuevas tecnologías</em>
+            <!-- <p class="row d-flex justify-content-center">Regístrate con: </p> -->
+            <div class="row d-flex justify-content-center">
+              <label class="btn-lg"><img class="btn-lg " src="https://image.flaticon.com/icons/svg/174/174848.svg" alt=""
+                  (click)="facebookAccount()"></label> 
+              <button class="d-none"></button>
+              <label class="btn-lg"><img class="btn-lg" src="https://image.flaticon.com/icons/svg/732/732200.svg" alt="" (click)="googleAccount()"></label>
+              <button class="d-none"></button>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1"><strong>Nombre</strong></label>
-          <input type="text" class="bakground-input" name="name" [(ngModel)]="name" aria-describedby="emailHelp"
-            placeholder="Ingresa tu nombre">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1"><strong>Correo Electrónico</strong></label>
-          <input type="email" class="bakground-input" name="email" [(ngModel)]="email" aria-describedby="emailHelp"
-            placeholder="Ingresa tu correo electrónico">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1"><strong>Contraseña</strong></label>
-          <input type="password" class="bakground-input" name="password" [(ngModel)]="password" placeholder="Ingresa tu contraseña">
-        </div>
-        <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" *ngIf="wrongForm === true">
-          {{messageWrong}}
-        </div>
-        <div class="row">
-          <button type="button" class="btn mx-auto main-btn" (click)="validateForm()">Regístrate</button>
-        </div>
-        <div class="row">
-          <p class="mx-auto ">Tienes una cuenta? <a href="" routerLink="/login">Inicia Sesión</a></p>
-        </div>
-      </form>
+          <div class="form-group">
+            <label for="exampleInputEmail1"><strong>Nombre</strong></label>
+            <input type="text" class="bakground-input" name="name" [(ngModel)]="name" aria-describedby="emailHelp"
+              placeholder="Ingresa tu nombre">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1"><strong>Correo Electrónico</strong></label>
+            <input type="email" class="bakground-input" name="email" [(ngModel)]="email" aria-describedby="emailHelp"
+              placeholder="Ingresa tu correo electrónico">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1"><strong>Contraseña</strong></label>
+            <input type="password" class="bakground-input" name="password" [(ngModel)]="password" placeholder="Ingresa tu contraseña">
+          </div>
+          <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" *ngIf="wrongForm === true">
+            {{messageWrong}}
+          </div>
+          <div class="row">
+            <button type="button" class="btn mx-auto main-btn" (click)="validateForm()">Regístrate</button>
+          </div>
+          <div class="row">
+            <p class="mx-auto ">Tienes una cuenta? <a href="" routerLink="/login">Inicia Sesión</a></p>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
+

@@ -1,43 +1,44 @@
-<div class="row">
-  <img class="col-6 d-none d-md-block padding-none height-full" src="https://scontent.flim6-1.fna.fbcdn.net/v/t1.15752-9/41965131_2356789807680715_6213257779549831168_n.png?_nc_cat=0&_nc_eui2=AeGJPDCnminP8D0UIuOcqo_IeEfU_aZDv4vx9dn7dsjLmPNrJsO7Z2421tifsjT80h5J7iXSKCU6KG4tD-WBLs6w5WAc6r1zvOTZVGKbkaUZ5Q&oh=cbafef5a652d45a87dc4924b1e6128c2&oe=5C23051C"
-    alt="init">
-  <div class="col-12 col-md-6  padding-none  height-full main-color">
-    <div class="container">
-      <div class="row">
-        <div class="col-10 mx-auto height-full">
-          <div class="row  my-5">
-            <img src="https://scontent.flim6-1.fna.fbcdn.net/v/t1.15752-9/41880598_596385507430907_7710663114726834176_n.png?_nc_cat=0&_nc_eui2=AeGPklKwmR4EYL1r5urHf1U8zHQd9qEthdIOLzZIC-kjoAoqGorkvx_ktNljKIRw6A8nB2AnehLBqR8qbSx5USm0l_qCq5WLfxwQvavv0r6WBA&oh=b53cac9f01961a5a8a2c9334e544dedf&oe=5C36E572"
-              alt="logo" class="mx-auto">
-          </div>
-          <form class="container">
-            <div class="form-group">
-              <label for="exampleInputEmail1" class="mx-auto "><strong>Correo Electrónico</strong></label>
-              <input type="email" class="mx-auto bakground-input" [(ngModel)]="email" name="email" aria-describedby="emailHelp"
-                placeholder="Ingresa tu correo electrónico" required>
+<div class="container-fluid ">
+  <div class="row">
+    <img class="col-md-6 p-0 d-none d-md-block  height-full" src="https://scontent.flim6-1.fna.fbcdn.net/v/t1.15752-9/41965131_2356789807680715_6213257779549831168_n.png?_nc_cat=0&_nc_eui2=AeGJPDCnminP8D0UIuOcqo_IeEfU_aZDv4vx9dn7dsjLmPNrJsO7Z2421tifsjT80h5J7iXSKCU6KG4tD-WBLs6w5WAc6r1zvOTZVGKbkaUZ5Q&oh=cbafef5a652d45a87dc4924b1e6128c2&oe=5C23051C" alt="init">
+    
+    <div class="col-12 col-md-6 padding-none height-full main-color m-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-10 mx-auto height-full">
+            <div class="row  my-5">
+              <img src="https://scontent.flim6-1.fna.fbcdn.net/v/t1.15752-9/41880598_596385507430907_7710663114726834176_n.png?_nc_cat=0&_nc_eui2=AeGPklKwmR4EYL1r5urHf1U8zHQd9qEthdIOLzZIC-kjoAoqGorkvx_ktNljKIRw6A8nB2AnehLBqR8qbSx5USm0l_qCq5WLfxwQvavv0r6WBA&oh=b53cac9f01961a5a8a2c9334e544dedf&oe=5C36E572" alt="logo" class="mx-auto">
             </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1" class="mx-auto"><strong>Contraseña</strong></label>
-              <input type="password" class="mx-auto bakground-input" [(ngModel)]="password" name="password" placeholder="Ingresa tu contraseña"
-                minlength="6" required>
+            <form class="container">
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="mx-auto"><strong>Correo Electrónico</strong></label>
+                <input type="email" class="mx-auto bakground-input" [(ngModel)]="email" name="email" aria-describedby="emailHelp" placeholder="Ingresa tu correo electrónico" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="mx-auto"><strong>Contraseña</strong></label>
+                <input type="password" class="mx-auto bakground-input" [(ngModel)]="password" name="password" placeholder="Ingresa tu contraseña"  minlength="6" required>
+              </div>
+              <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" *ngIf="wrongForm === true">
+                {{messageWrong}}
+              </div>
+              <div class="row">
+                <button type="button" class="btn mx-auto main-btn" (click)="validateForm()">Iniciar Sesión</button>
+              </div>
+            </form>
+            <div class="container">
+              <p class="row d-flex justify-content-center">Inicia Sesión con: </p>
+              <div class="col-6 mx-auto">
+                <div class="row  d-flex justify-content-around">
+                  <label for="btn-facebook" class="btn-lg"><img class="btn-lg" src="https://image.flaticon.com/icons/svg/174/174848.svg"></label>
+                  <button id="btn-facebook" class="d-none" (click)="facebookAccount()"></button>
+                  <label for="btn-google" class="btn-lg"><img class="btn-lg" src="https://image.flaticon.com/icons/svg/732/732200.svg"></label>
+                  <button id="btn-google" class=" d-none" (click)="googleAccount()"></button>
+                </div>
+              </div>           
             </div>
-            <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" *ngIf="wrongForm === true">
-              {{messageWrong}}
+            <div class="row">
+              <p class="mx-auto">No tienes una cuenta? <a href="" routerLink="/signup">Regístraste</a></p>
             </div>
-            <div class="row ">
-              <button type="button" class="btn mx-auto main-btn" (click)="validateForm()">Iniciar Sesión</button>
-            </div>
-          </form>
-          <div class="container">
-            <p class="row d-flex justify-content-center">Inicia Sesión con: </p>
-            <div class="row  d-flex justify-content-center">
-              <label for="btn-facebook" class="col-2"><img class="pointer" height="35px" width="35px" src="https://image.flaticon.com/icons/svg/174/174848.svg"></label>
-              <button id="btn-facebook" class="d-none" (click)="facebookAccount()"></button>
-              <label for="btn-google" class="col-2"><img class="pointer" height="40px" width="40px" src="https://image.flaticon.com/icons/svg/732/732200.svg"></label>
-              <button id="btn-google" class=" d-none" (click)="googleAccount()"></button>
-            </div>
-          </div>
-          <div class="row">
-            <p class="mx-auto">No tienes una cuenta? <a href="" routerLink="/signup">Regístraste</a></p>
           </div>
         </div>
       </div>

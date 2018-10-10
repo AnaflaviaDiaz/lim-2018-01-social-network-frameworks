@@ -10,10 +10,10 @@ export class CreatePostComponent implements OnInit {
 
   public description: string;
   public privacity: string;
+  public items = [];
   public defaultPrivacity: any;
   public currentImg: FileList;
   public currentImgSrc: any;
-  public items = [];
 
   constructor(
     public _registerSrv: RegisterService
@@ -25,16 +25,15 @@ export class CreatePostComponent implements OnInit {
   }
 
   createPost() {
-    if (this.description !== undefined && this.description.length > 0) {
+    if ((this.description !== undefined && this.description.length > 0 )|| this.currentImgSrc ) {
       this._registerSrv
         .writePostData(this.description, this.privacity, this.currentImgSrc)
         .then(() => {
           this.description = '';
           this.currentImgSrc = null;
         });
-    } else {
-      console.log('no escribiste nada');
     }
+    else alert('Ingresa texto para publicar! 😉')
   }
 
   addImg(event) {

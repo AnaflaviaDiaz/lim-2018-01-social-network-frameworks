@@ -50,19 +50,20 @@ export class SignupComponent implements OnInit {
         const emailUserSesion = res.user.email;
         this._getUpdRem.getUser()
           .then(user => {
-            const lengthUsers = (Object['values'](user).length) - 1;
-            Object['values'](user).map((x, i) => {
+            const lengthUsers = (Object["values"](user).length) - 1;
+            Object["values"](user).map((x, i) => {
               if (x.email === emailUserSesion) {
                 this.userInDB = true;
               }
               if (i === lengthUsers && this.userInDB) {
                 this.zone.run(() => this._router.navigate(['/home']));
-              } else if (i === lengthUsers && !this.userInDB) {
+              }
+              else if (i === lengthUsers && !this.userInDB) {
                 this._registerService
                   .writeUserData(res.user, res.user.displayName)
                   .then(() => this.zone.run(() => this._router.navigate(['/home'])));
               }
-            });
+            })
           });
       });
   }
@@ -70,44 +71,45 @@ export class SignupComponent implements OnInit {
   googleAccount() {
     this._authSrv.googleAccount()
       .then(res => {
+        // this.zone.run(() => this._router.navigate(['/home']));
         const emailUserSesion = res.user.email;
         this._getUpdRem.getUser()
           .then(user => {
-            const lengthUsers = (Object['values'](user).length) - 1;
-            Object['values'](user).map((x, i) => {
+            const lengthUsers = (Object["values"](user).length) - 1;
+            Object["values"](user).map((x, i) => {
               if (x.email === emailUserSesion) {
                 this.userInDB = true;
               }
               if (i === lengthUsers && this.userInDB) {
                 this.zone.run(() => this._router.navigate(['/home']));
-              } else if (i === lengthUsers && !this.userInDB) {
+              }
+              else if (i === lengthUsers && !this.userInDB) {
                 this._registerService
                   .writeUserData(res.user, res.user.displayName)
                   .then(() => this.zone.run(() => this._router.navigate(['/home'])));
               }
-            });
+            })
           });
       });
   }
 
   validateForm() {
-    // tslint:disable-next-line:max-line-length
     const validEmailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (this.name === undefined || this.name.length < 3) {
       this.validName = false;
       this.wrongForm = true;
       this.messageWrong = 'Nombre no válido';
-    } else { this.validName = true; }
+    } else this.validName = true;
     if (this.password === undefined || this.password.length < 6) {
       this.validPass = false;
       this.wrongForm = true;
       this.messageWrong = 'Contraseña no válida';
-    } else { this.validPass = true; }
+    } else this.validPass = true;
     if (!validEmailRegEx.test(this.email)) {
       this.validEmail = false;
       this.wrongForm = true;
       this.messageWrong = 'Email no válido';
-    } else { this.validEmail = true; }
+    } else this.validEmail = true;
     if (this.validEmail && this.validName && this.validPass) {
       this.signup();
     }

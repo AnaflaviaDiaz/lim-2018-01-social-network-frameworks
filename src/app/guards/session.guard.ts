@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from '../services/auth/auth.service'
 
@@ -16,14 +15,14 @@ export class SessionGuard implements CanActivate {
   } 
   canActivate(
     router: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot):  Observable<boolean> | Promise<boolean> | boolean{
-      return new Promise((resolve,reject)=>{
+    state: RouterStateSnapshot):  Promise<boolean> | boolean{
+      return new Promise((resolve)=>{
         this.authService.stateSession()
         .then(user=>{
           this.router.navigate(['./home']);
-          resolve(false)
+          resolve(false);
         })
-        .catch(err=> resolve(true));
+        .catch(err => resolve(true));
       })
       }
 }
